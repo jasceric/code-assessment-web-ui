@@ -11,6 +11,9 @@ import Quantity from '../Quantity';
 import { getImage } from '../../utils/images';
 import imageTypes from '../../constants/imageTypes';
 
+import { connect } from 'react-redux';
+import { loadCurrentItem } from '../../redux/Products/product-actions';
+
 import styles from './Product.module.scss';
 
 const Product = ({
@@ -24,7 +27,8 @@ const Product = ({
   onIncrement,
   price,
   title,
-  productData
+  productData,
+  loadCurrentItem
 }) => {
   const isInCart = onIncrement && onDecrement;
   const productClasses = cx(className, styles.product, {
@@ -88,4 +92,11 @@ Product.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default Product;
+const mapDispatchToProps = dispatch => {
+  return {
+    loadCurrentItem: item => dispatch(loadCurrentItem(item))
+  };
+};
+// connect(null, mapDispatchToProps)
+
+export default connect(null, mapDispatchToProps)(Product);

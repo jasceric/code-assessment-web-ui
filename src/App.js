@@ -10,12 +10,13 @@ import Cart from './pages/Cart';
 import ProductDetails from './components/ProductDetails';
 
 import { Provider } from 'react-redux';
+import store from './redux/store';
 
 function App() {
   const appContextValue = useAppContext();
   return (
     <AppContext.Provider value={appContextValue}>
-      <Provider>
+      <Provider store={store}>
         <Router>
           <Route path="/">
             <ProductLanding />

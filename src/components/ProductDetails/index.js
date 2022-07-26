@@ -9,6 +9,8 @@ import close from '../../assets/close.svg';
 
 import styles from './ProductDetails.module.scss';
 
+import { connect } from 'react-redux';
+
 import Button from '../Button';
 import Quantity from '../Quantity';
 
@@ -112,4 +114,10 @@ const ProductDetail = ({
   );
 };
 
-export default ProductDetail;
+const mapStateToProps = state => {
+  return {
+    currentItem: state.product.currentItem
+  };
+};
+
+export default connect(mapStateToProps)(ProductDetail);
