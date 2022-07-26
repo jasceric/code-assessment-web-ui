@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "../src/components/ProductCart/ProductCart.module.scss"
+    ],
+    "names": [],
+    "file": "ProductCart.module.css"
+}
